@@ -7,7 +7,15 @@
       "Read(//private/tmp/**)",
       "Bash(npx --yes create-next-app@latest recallcode --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack)",
       "Bash(npm install *)",
-      "Bash(npx shadcn@latest init --yes --defaults)"
+      "Bash(npx shadcn@latest init --yes --defaults)",
+      "Bash(npx shadcn@latest add badge card dialog input label select separator textarea toast --yes)",
+      "Bash(npx shadcn@latest add sonner --yes)",
+      "Bash(npx tsc *)",
+      "Bash(node_modules/typescript/bin/tsc --noEmit)",
+      "Bash(npx shadcn@latest add input label badge card dialog textarea --yes)",
+      "Bash(npm run *)",
+      "Bash(node node_modules/next/dist/bin/next build)",
+      "Bash(node node_modules/typescript/bin/tsc --noEmit)"
     ]
   }
 }
