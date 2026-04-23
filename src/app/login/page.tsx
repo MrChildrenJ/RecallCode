@@ -38,7 +38,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm space-y-6">
         <div className="text-center">
           <h1 className="text-3xl font-bold">RecallCode</h1>
-          <p className="text-muted-foreground mt-2 text-sm">LeetCode 間隔複習工具</p>
+          <p className="text-muted-foreground mt-2 text-sm">LeetCode Spaced Repetition Review Tool</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
