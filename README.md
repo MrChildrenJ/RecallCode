@@ -1,5 +1,7 @@
 # RecallCode
 
+**Live site → [recall-code.vercel.app](https://recall-code.vercel.app)**
+
 A spaced repetition tracker for LeetCode problems. Built with Next.js, Supabase, and the SM-2 algorithm.
 
 ## Features
