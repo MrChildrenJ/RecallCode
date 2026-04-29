@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import { toast } from 'sonner'
 import { updateReviewStatus, updateProblemUrl, updateProblemMeta } from '@/app/actions/problems'
 import { CodeEditor } from '@/components/code-editor'
+import { Container } from '@/components/container'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
@@ -107,7 +108,7 @@ export function ProblemDetail({ problem, review, logs }: Props) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-8 space-y-8">
+    <Container className="space-y-8">
       <div>
         <button
           onClick={() => router.back()}
@@ -290,6 +291,6 @@ export function ProblemDetail({ problem, review, logs }: Props) {
           </div>
         )}
       </div>
-    </div>
+    </Container>
   )
 }

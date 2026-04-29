@@ -5,6 +5,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { createClient } from '@/lib/supabase/client'
 import { toast } from 'sonner'
+import { useLayout } from '@/lib/layout-context'
 
 const navItems = [
   { href: '/', label: "Today's Review" },
@@ -15,6 +16,7 @@ const navItems = [
 export function Navbar() {
   const pathname = usePathname()
   const router = useRouter()
+  const { width, toggle } = useLayout()
 
   async function handleLogout() {
     const supabase = createClient()
@@ -46,8 +48,15 @@ export function Navbar() {
             </Link>
           ))}
           <button
+            onClick={toggle}
+            title={width === 'wide' ? 'Compact view' : 'Wide view'}
+            className="px-2 py-1.5 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          >
+            {width === 'wide' ? '⊟' : '⊞'}
+          </button>
+          <button
             onClick={handleLogout}
-            className="px-3 py-1.5 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors ml-2"
+            className="px-3 py-1.5 rounded-md text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
           >
             Sign out
           </button>

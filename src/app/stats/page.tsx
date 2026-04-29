@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import { Container } from '@/components/container'
 
 export default async function StatsPage() {
   const supabase = await createClient()
@@ -51,7 +52,7 @@ export default async function StatsPage() {
   const todayReviews = logs?.filter((l) => l.reviewed_at.startsWith(today)).length ?? 0
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8 space-y-8">
+    <Container className="space-y-8">
       <h1 className="text-2xl font-bold">Stats</h1>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -113,6 +114,6 @@ export default async function StatsPage() {
           )}
         </div>
       </div>
-    </div>
+    </Container>
   )
 }

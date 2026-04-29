@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { ProblemsTable } from '@/components/problems-table'
+import { Container } from '@/components/container'
 
 export default async function ProblemsPage() {
   const supabase = await createClient()
@@ -15,7 +16,7 @@ export default async function ProblemsPage() {
     .order('created_at', { ascending: false })
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <Container>
       <div className="flex items-center justify-between mb-8">
         <div>
           <h1 className="text-2xl font-bold">Problems</h1>
@@ -29,6 +30,6 @@ export default async function ProblemsPage() {
         </Link>
       </div>
       <ProblemsTable problems={problems ?? []} />
-    </div>
+    </Container>
   )
 }

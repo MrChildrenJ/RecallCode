@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { ReviewQueue } from '@/components/review-queue'
+import { Container } from '@/components/container'
 import { redirect } from 'next/navigation'
 
 export default async function HomePage() {
@@ -18,7 +19,7 @@ export default async function HomePage() {
     .order('due_date', { ascending: true })
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
+    <Container>
       <div className="mb-8">
         <h1 className="text-2xl font-bold">Today's Review</h1>
         <p className="text-muted-foreground mt-1">
@@ -28,6 +29,6 @@ export default async function HomePage() {
         </p>
       </div>
       <ReviewQueue reviews={dueReviews ?? []} />
-    </div>
+    </Container>
   )
 }
