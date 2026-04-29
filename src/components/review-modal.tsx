@@ -13,6 +13,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
 import { toast } from 'sonner'
 import { submitReview } from '@/app/actions/reviews'
+import Link from 'next/link'
 
 const ERROR_TYPES: { value: ErrorType; label: string }[] = [
   { value: 'no_idea', label: 'No idea' },
@@ -68,11 +69,23 @@ export function ReviewModal({ review, onComplete, onClose }: Props) {
     <Dialog open onOpenChange={onClose}>
       <DialogContent className="max-w-lg">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <span className="text-muted-foreground font-mono text-sm">
-              #{problem.leetcode_id}
-            </span>
-            {problem.title}
+          <DialogTitle className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2">
+              <span className="text-muted-foreground font-mono text-sm">
+                #{problem.leetcode_id}
+              </span>
+              {problem.title}
+            </div>
+            {problem.leetcode_url && (
+              <Link
+                href={problem.leetcode_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-normal text-muted-foreground hover:text-foreground border rounded px-2 py-1 transition-colors shrink-0"
+              >
+                Open ↗
+              </Link>
+            )}
           </DialogTitle>
         </DialogHeader>
 
